@@ -42,7 +42,7 @@ export default function Home() {
       </div>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
-          <Image src={"/haas.png"} width={500} height={500} alt="me" />
+          <Image src={"/portfolio/haas.png"} width={500} height={500} alt="me" />
           <div>
             <h1 className="text-4xl font-bold">Hello, I'm Chandrahaas <span className="wave">👋</span> </h1>
             <h1 className="animate-typing overflow-hidden text-6xl font-bold whitespace-nowrap text-green-500 pt-5 pb-5">Full Stack Engineer</h1>
