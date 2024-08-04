@@ -7,6 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        typing: {
+          "0%": {
+            width: "0%",
+            visibility: "hidden"
+          },
+          "100%": {
+            width: "100%"
+          }
+        }
+      },
+      animation: {
+        typing: "typing 2s steps(20)"
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -14,5 +28,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require(`daisyui`)],
+  daisyui: {
+    themes: ["black"]
+  }
 };

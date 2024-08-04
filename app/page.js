@@ -1,113 +1,103 @@
+"use client"
 import Image from "next/image";
+import { useEffect } from "react";
+import 'aos/dist/aos.css';
+import AOS from "aos"
+import { TickMark } from "./svg";
+import { Icon } from '@iconify/react';
+
+const ExpCard = ({ props }) => {
+  const { name, company, description } = props
+  return (
+    <div className="card bg-primary shadow-3xl rounded-2xl max-w-2xl">
+      <div className="card-body">
+        <h2 className="card-title text-2xl">{name}</h2>
+        <p className="text-left">{company}</p>
+        <p className="text-left">{description}</p>
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
+
+  useEffect(() => {
+    setTimeout(() => {
+      AOS.init();
+    }, 500)
+  }, []);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="bg-base-200">
+      <div className="w-screen flex content-center justify-center fixed z-10">
+        <div className="navbar  bg-primary text-slate m-5 rounded-full text-2xl w-fit h-fit opacity-80">
+            <ul className="menu menu-horizontal px-1 text-l">
+              <li><a className="hover:rounded-full" href="#">Home</a></li>
+              <li><a className="hover:rounded-full" href="#skills">Skills</a></li>
+              <li><a className="hover:rounded-full" href="#exp">Experience</a></li>
+              <li><a className="hover:rounded-full">Blog</a></li>
+              <li><a className="hover:rounded-full">Tools</a></li>
+              <li><a className="hover:rounded-full">Games</a></li>
+            </ul>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="hero bg-base-200 min-h-screen">
+        <div className="hero-content flex-col lg:flex-row">
+          <Image src="/haas.png" width={500} height={500} alt="me" />
+          <div>
+            <h1 className="text-4xl font-bold">Hello, I'm Chandrahaas <span className="wave">👋</span> </h1>
+            <h1 className="animate-typing overflow-hidden text-6xl font-bold whitespace-nowrap text-green-500 pt-5 pb-5">Full Stack Engineer</h1>
+            <div className="flex flex-row gap-10">
+              <a href="https://www.linkedin.com/in/chandrahaas-vakkalagadda-05b909188/"><Icon icon="fa6-brands:linkedin" width="3rem" height="3rem" /></a>
+              <a href="https://github.com/chandrahaas02"><Icon icon="fa6-brands:github" width="3rem" height="3rem" /></a>
+              <a href="mailto:chandrahaas02@gmail.com"><Icon icon="fa6-brands:google" width="3rem" height="3rem" /></a>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div id="skills"className="flex flex-col justify-center items-center bg-base-200 min-h-80" data-aos="fade-in">
+        <h2 className="text-3xl p-5" >Skills</h2>
+        <div className="grid grid-rows-2 grid-flow-col gap-16">
+          <div><Icon icon="skill-icons:gcp-dark" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:aws-dark" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:gitlab-dark" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:python-dark" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:linux-dark" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:windows-dark" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:nodejs-dark" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:react-dark" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:kubernetes" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:docker" width="7rem" height="7rem" /></div>
+          <div><Icon icon="skill-icons:grafana-dark" width="7rem" height="7rem" /></div>
+        </div>
       </div>
-    </main>
+      <div  id="exp" className="flex flex-col justify-center items-center bg-base-200 min-h-screen mt-12">
+        <h2 className="text-3xl self-center p-6">Work Experience</h2>
+      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+        <li>
+          <TickMark />
+          <div className="timeline-start mb-10 md:text-end" data-aos="fade-right">
+            <ExpCard props={{name:"Devops Engineer", company:"StoryXpress", description:"Optimized infrastructure and deployment through Kubernetes migration, GitOps Stratergy, and continuous monitoring. Led development of AI tools for image recognition, text transcription, and product content generation."}}/>
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <TickMark />
+          <div className="timeline-end mb-10" data-aos="fade-left">
+            <ExpCard props={{name:"Data Science Intern",company:"I'm beside You",description:"Designed a Recomendation System using collabrative filters and explored several DL based approaches"}}/>
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <TickMark />
+          <div className="timeline-start mb-10 md:text-end" data-aos="fade-right">
+            <ExpCard props={{name:"Service Provider",company:"Willings", description:"Created a one-stop destination for Japanese wall art by crawling across brochures of major wallpaper companies. Designed user and admin portals and implemented a database to store and manage data."}}/>
+          </div>
+          <hr />
+        </li>
+      </ul>
+      </div>
+    </div>
   );
 }
